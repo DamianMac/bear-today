@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace bear
+namespace bear-today
 {
     class Program
     {
