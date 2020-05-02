@@ -9,16 +9,21 @@ namespace BearToday
         static void Main(string[] args)
         {
             var builder = new CallbackUrlBuilder();
-            var uri = builder.BuildToday(DateTime.Now);
-            var url = uri.AbsoluteUri;
+            var todayUri = builder.BuildToday(DateTime.Now);
+            var url = todayUri.AbsoluteUri;
 
-            var cmd = $"-g \"{url}\"";
-            
-            var process = new Process();
-            process.StartInfo.FileName = "open";
-            process.StartInfo.Arguments = cmd;
-            process.StartInfo.UseShellExecute = false;
-            process.StartInfo.RedirectStandardOutput = true;
+            var bearArgs = $"-g \"{url}\"";
+
+            var process = new Process
+            {
+                StartInfo =
+                {
+                    FileName = "open", 
+                    Arguments = bearArgs, 
+                    UseShellExecute = false, 
+                    RedirectStandardOutput = true
+                }
+            };
             process.OutputDataReceived += (sender, eventArgs) =>
             {
                 Console.WriteLine(eventArgs.Data);
