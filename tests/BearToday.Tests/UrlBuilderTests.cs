@@ -46,7 +46,7 @@ namespace BearToday.Tests
             [Fact]
             public void ItShouldFormatTitle()
             {
-                var expectedTitle = "1%20May%202020%20-%20Friday";
+                var expectedTitle = "1%20May%202020";
                 Assert.Contains(expectedTitle, _todayUrl.Query);
             }
 

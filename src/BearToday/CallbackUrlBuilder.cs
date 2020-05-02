@@ -15,7 +15,7 @@ namespace BearToday
             uri.Path = "create";
             
             var queryParams = new NameValueCollection();
-            queryParams.Add("title", today.ToString("d MMMM yyyy - dddd"));
+            queryParams.Add("title", today.ToString("d MMMM yyyy"));
             queryParams.Add("tags", "today/" + today.ToString("yyyy/MM"));
             queryParams.Add("pin", "yes");
             queryParams.Add("timestamp", "yes");
