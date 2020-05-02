@@ -11,6 +11,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{080670B6
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BearToday.Tests", "tests\BearToday.Tests\BearToday.Tests.csproj", "{E148E072-14A7-4EBE-A900-D17BF4C57251}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{7E3E3FB6-4759-48E2-9006-1CE5465AC393}"
+ProjectSection(SolutionItems) = preProject
+	run.sh = run.sh
+EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

@@ -21,7 +21,7 @@ namespace BearToday
             queryParams.Add("timestamp", "yes");
             queryParams.Add("show_window", "no");
 
-            var body = $"{Environment.NewLine}{Environment.NewLine}## Today{Environment.NewLine}";
+            var body = new MarkdownLoader().LoadTemplate("today");
             queryParams.Add("text", body);
             
             uri.Query = ToQueryString(queryParams);
@@ -34,12 +34,12 @@ namespace BearToday
             var array = (
                 from key in nvc.AllKeys
                 from value in nvc.GetValues(key)
-                select $"{HttpUtility.UrlPathEncode(key)}={ExtraEscapes(value)}"
+                select $"{HttpUtility.UrlPathEncode(key)}={Escape(value)}"
             ).ToArray();
             return string.Join("&", array);
         }
 
-        private string ExtraEscapes(string input)
+        private string Escape(string input)
         {
             return input
                 .Replace("/", "%2F")
