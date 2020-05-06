@@ -1,16 +1,17 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.Diagnostics;
 using System.IO;
 
 namespace BearToday
 {
-    class Program
+    public class Program
     {
         static void Main(string[] args)
         {
             var builder = new CallbackUrlBuilder();
-            var todayUri = builder.BuildToday(DateTime.Now);
-            var url = todayUri.AbsoluteUri;
+            var uri = new Uri("http://localhost");
+            var url = uri.AbsoluteUri;
 
             var bearArgs = $"-g \"{url}\"";
 

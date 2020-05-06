@@ -9,8 +9,7 @@ namespace BearToday.Tests
     {
         public class WhenBuildingTodayUrl : SpecificationFor<CallbackUrlBuilder>
         {
-            private Uri _todayUrl;
-            private DateTime _today;
+            private Uri _url;
 
             public override CallbackUrlBuilder Given()
             {
@@ -19,14 +18,19 @@ namespace BearToday.Tests
 
             public override void When()
             {
-                _today = new DateTime(2020, 5, 1, 8, 0, 0);
-                _todayUrl = Subject.BuildToday(_today);
+                var body = @"## Journal
+
+
+## Today
+
+";
+                _url = Subject.BuildUrl(BearAction.Create, new []{"foo", "bar"}, true, true, "Test One", body);
             }
 
             [Fact]
             public void ItShouldCallCreate()
             {
-                var url = _todayUrl.ToString();
+                var url = _url.ToString();
                 Assert.Contains("/create", url);
 
             }
@@ -34,51 +38,51 @@ namespace BearToday.Tests
             [Fact]
             public void ItShouldCallBear()
             {
-                Assert.Equal("bear", _todayUrl.Scheme);
+                Assert.Equal("bear", _url.Scheme);
             }
 
             [Fact]
             public void ItShouldBeAnXCallbackUrl()
             {
-                Assert.Equal("x-callback-url", _todayUrl.Host);
+                Assert.Equal("x-callback-url", _url.Host);
             }
 
             [Fact]
             public void ItShouldFormatTitle()
             {
-                var expectedTitle = "1%20May%202020";
-                Assert.Contains(expectedTitle, _todayUrl.Query);
+                var expectedTitle = "Test%20One";
+                Assert.Contains(expectedTitle, _url.Query);
             }
 
             [Fact]
             public void ItShouldFormatTags()
             {
-                var expectedTags = "tags=today%2F2020%2F05";
-                Assert.Contains(expectedTags, _todayUrl.Query);
+                var expectedTags = "foo%2Cbar";
+                Assert.Contains(expectedTags, _url.Query);
             }
 
             [Fact]
             public void SetsShowWindow()
             {
-                Assert.Contains("show_window=no", _todayUrl.Query);
+                Assert.Contains("show_window=no", _url.Query);
             }
             
             [Fact]
             public void SetsPinNote()
             {
-                Assert.Contains("pin=yes", _todayUrl.Query);
+                Assert.Contains("pin=yes", _url.Query);
             }
             
             [Fact]
             public void SetsTimestamp()
             {
-                Assert.Contains("timestamp=yes", _todayUrl.Query);
+                Assert.Contains("timestamp=yes", _url.Query);
             }
 
             [Fact]
             public void SetsText()
             {
-                Assert.Contains("Today", _todayUrl.Query);
+                Assert.Contains("Today", _url.Query);
             }
             
             

@@ -13,7 +13,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BearToday.Tests", "tests\Be
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{7E3E3FB6-4759-48E2-9006-1CE5465AC393}"
 ProjectSection(SolutionItems) = preProject
-	run.sh = run.sh
+	Build.sh = Build.sh
 EndProjectSection
 EndProject
 Global
