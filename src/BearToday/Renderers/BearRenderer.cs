@@ -10,7 +10,7 @@ namespace BearToday.Renderers
         {
             
             var builder = new BearCallbackUrlBuilder();
-            var uri = builder.BuildUrl(BearAction.Create, result.Rendered.Tags, true, true, result.Rendered.Title,
+            var uri = builder.BuildUrl(BearAction.Create, result.Rendered.Tags, result.Rendered.Pin, result.Rendered.ShowTimestamp, result.Rendered.Title,
                 result.Rendered.Body);
             
             var url = uri.AbsoluteUri;

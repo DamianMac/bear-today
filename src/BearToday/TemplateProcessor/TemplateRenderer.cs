@@ -26,7 +26,9 @@ namespace BearToday.TemplateProcessor
             {
                 rendered.Tags = contentTemplate.Tags.Select(Render).ToArray();
             }
-            
+
+            rendered.Pin = contentTemplate.Pin;
+            rendered.ShowTimestamp = contentTemplate.ShowTimestamp;
             result.Rendered = rendered;
             result.IsValid = true;
             return result;

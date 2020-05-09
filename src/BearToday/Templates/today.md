@@ -1,7 +1,8 @@
 ---
 title: "{{date.day}} {{date.month_name}} {{date.year}}"
 tags: ["journal/{{date.year}}/{{date.padded_month}}"]
-
+pin: true
+showtimestamp: false
 ---
 ## Journal
 
@@ -12,6 +13,8 @@ tags: ["journal/{{date.year}}/{{date.padded_month}}"]
    - [ ] Thing {{ i }}{% endfor %}
 
 ## Log
+
+Ends
 
 
 

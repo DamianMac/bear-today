@@ -7,5 +7,7 @@ namespace BearToday.TemplateProcessor
         public string Title { get; set; }
         public string[] Tags { get; set; }
         public string Body { get; set; }
+        public bool Pin { get; set; }
+        public bool ShowTimestamp { get; set; }
     }
 }

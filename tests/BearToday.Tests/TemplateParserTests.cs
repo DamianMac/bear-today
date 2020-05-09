@@ -5,7 +5,7 @@ namespace BearToday.Tests
 {
     public class TemplateParserTests
     {
-        public class WhenParsingATemplateWithATitleAndTags : SpecificationFor<TemplateParser>
+        public class WhenParsingATemplate : SpecificationFor<TemplateParser>
         {
             private TemplateParsingResult _result;
             public override TemplateParser Given()
@@ -18,6 +18,8 @@ namespace BearToday.Tests
                 var content = @"---
 title: Today's To Do list
 tags: [todo, today]
+pin: true
+showtimestamp: True
 ---
 Things to do
 ";
@@ -46,6 +48,18 @@ Things to do
             public void ItParsesTheBody()
             {
                 Assert.StartsWith("Things to do", _result.ContentTemplate.Body);
+            }
+
+            [Fact]
+            public void ItParsesPin()
+            {
+                Assert.True(_result.ContentTemplate.Pin);
+            }
+
+            [Fact]
+            public void ItParsesShowTimestamp()
+            {
+                Assert.True(_result.ContentTemplate.ShowTimestamp);
             }
         }
         
@@ -83,6 +97,19 @@ Things to do
             public void TagsAreNull()
             {
                 Assert.Null(_result.ContentTemplate.Tags);
+            }
+            
+            
+            [Fact]
+            public void ItDefaultsPin()
+            {
+                Assert.False(_result.ContentTemplate.Pin);
+            }
+
+            [Fact]
+            public void ItDefaultsShowTimestamp()
+            {
+                Assert.False(_result.ContentTemplate.ShowTimestamp);
             }
         }
     }

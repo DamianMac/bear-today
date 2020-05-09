@@ -9,15 +9,33 @@ namespace BearToday
         static void Main(string[] args)
         {
 
-            var templateName = args[0];
+            if (args == null || args.Length != 1)
+            {
+                ShowHelp();
+                return;
+            }
             
+            var templateName = args[0];
+
             var pipeline = new ContentPipeline();
             var result = pipeline.BuildContent(templateName);
-            
-            var renderer = new BearRenderer();
-            renderer.Render(result);
-            
-            Console.WriteLine("Done");
+            if (result.IsHappy)
+            {
+                var renderer = new BearRenderer();
+                renderer.Render(result);
+            }
+            else
+            {
+                Console.WriteLine($"Failed: {result.Error}");
+                return;
+            }
+
+            Console.WriteLine("Success");
+        }
+
+        private static void ShowHelp()
+        {
+            Console.WriteLine("Usage: ./BearToday templatename");
         }
     }
 }

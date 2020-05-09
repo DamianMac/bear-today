@@ -33,7 +33,7 @@ namespace BearToday.TemplateProcessor
         {
             var parser = new Parser(input);
             var deserializer = new DeserializerBuilder()
-                .WithNamingConvention(CamelCaseNamingConvention.Instance)
+                .WithNamingConvention(LowerCaseNamingConvention.Instance)
                 .Build();
 
             parser.Consume<StreamStart>();
