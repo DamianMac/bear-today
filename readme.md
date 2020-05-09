@@ -6,7 +6,7 @@ It allows you to create date based journal or planning entries with date based n
 
 
 
-<img src="./BearTodayNote.png" alt="BearTodayNote" style="zoom:50%;" />
+<img src="./BearTodayNote.png" alt="BearTodayNote" />
 
 ## Getting Started
 
