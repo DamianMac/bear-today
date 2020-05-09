@@ -4,13 +4,13 @@ using System.Collections.Specialized;
 using System.Linq;
 using System.Web;
 
-namespace BearToday
+namespace BearToday.Renderers
 {
     public enum BearAction
     {
         Create
     };
-    public class CallbackUrlBuilder
+    public class BearCallbackUrlBuilder
     {
         private static readonly Hashtable Actions = new Hashtable
         {

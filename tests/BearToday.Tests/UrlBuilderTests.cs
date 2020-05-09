@@ -1,19 +1,20 @@
 using System;
 using System.Text.Encodings.Web;
 using System.Web;
+using BearToday.Renderers;
 using Xunit;
 
 namespace BearToday.Tests
 {
     public class UrlBuilderTests
     {
-        public class WhenBuildingTodayUrl : SpecificationFor<CallbackUrlBuilder>
+        public class WhenBuildingTodayUrl : SpecificationFor<BearCallbackUrlBuilder>
         {
             private Uri _url;
 
-            public override CallbackUrlBuilder Given()
+            public override BearCallbackUrlBuilder Given()
             {
-                return new CallbackUrlBuilder();
+                return new BearCallbackUrlBuilder();
             }
 
             public override void When()
