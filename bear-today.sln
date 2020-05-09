@@ -14,6 +14,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{7E3E3FB6-4759-48E2-9006-1CE5465AC393}"
 ProjectSection(SolutionItems) = preProject
 	Build.sh = Build.sh
+	readme.md = readme.md
 EndProjectSection
 EndProject
 Global
