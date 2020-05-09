@@ -4,6 +4,10 @@ Bear Today is a templated note generator for [Bear Notes](https://bear.app/) on 
 
 It allows you to create date based journal or planning entries with date based note titles or tags.
 
+
+
+<img src="./BearTodayNote.png" alt="BearTodayNote" style="zoom:50%;" />
+
 ## Getting Started
 
 ### 1. Download the latest release.
