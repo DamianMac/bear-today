@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 
@@ -17,13 +18,12 @@ namespace BearToday.TemplateProcessor
         {
             //Assume a markdown filename
             var fileName = $"{templateName}.md";
-
-            //Look in current directory, or a ~/.BearToday/
+            
+            //Look in current directory, templates subdirectory, or a ~/.BearToday/
             var searchDirectories = new[]
             {
-                // ReSharper disable once PossibleNullReferenceException
-                new FileInfo(Assembly.GetExecutingAssembly().Location).Directory.FullName,
-                Path.Combine(new FileInfo(Assembly.GetExecutingAssembly().Location).Directory.FullName, "templates"),
+                Directory.GetCurrentDirectory(),
+                Path.Combine(Directory.GetCurrentDirectory(), "templates"),
                 Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), ".BearToday")
             };
 
@@ -34,7 +34,7 @@ namespace BearToday.TemplateProcessor
                     return _fileSystem.Read(pathToSearch);
             }
             
-            throw new FileNotFoundException($"Can't find {fileName} in any known directories");
+            throw new FileNotFoundException($"Can't find {fileName} in any known directories ({string.Join(",", searchDirectories)})");
         }
     }
 }
