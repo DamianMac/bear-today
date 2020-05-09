@@ -22,14 +22,14 @@ namespace BearToday.TemplateProcessor
             ResetReaderPosition(input);
             template.Body = input.ReadToEnd();
             
-            result.Template = template;
+            result.ContentTemplate = template;
             result.IsValid = true;
 
             return result;
 
         }
 
-        private static Template ReadFrontMatter(StringReader input)
+        private static ContentTemplate ReadFrontMatter(StringReader input)
         {
             var parser = new Parser(input);
             var deserializer = new DeserializerBuilder()
@@ -38,7 +38,7 @@ namespace BearToday.TemplateProcessor
 
             parser.Consume<StreamStart>();
             parser.Consume<DocumentStart>();
-            var template = deserializer.Deserialize<Template>(parser);
+            var template = deserializer.Deserialize<ContentTemplate>(parser);
             parser.Consume<DocumentEnd>();
             return template;
         }

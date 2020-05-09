@@ -33,19 +33,19 @@ Things to do
             [Fact]
             public void ItParsesTheTitle()
             {
-                Assert.Equal("Today's To Do list", _result.Template.Title);
+                Assert.Equal("Today's To Do list", _result.ContentTemplate.Title);
             }
 
             [Fact]
             public void ItParsesTags()
             {
-                Assert.Equal(new []{"todo", "today"}, _result.Template.Tags);
+                Assert.Equal(new []{"todo", "today"}, _result.ContentTemplate.Tags);
             }
 
             [Fact]
             public void ItParsesTheBody()
             {
-                Assert.StartsWith("Things to do", _result.Template.Body);
+                Assert.StartsWith("Things to do", _result.ContentTemplate.Body);
             }
         }
         
@@ -76,13 +76,13 @@ Things to do
             [Fact]
             public void ItParsesTheTitle()
             {
-                Assert.Equal("Today's To Do list", _result.Template.Title);
+                Assert.Equal("Today's To Do list", _result.ContentTemplate.Title);
             }
 
             [Fact]
             public void TagsAreNull()
             {
-                Assert.Null(_result.Template.Tags);
+                Assert.Null(_result.ContentTemplate.Tags);
             }
         }
     }
